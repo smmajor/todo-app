@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     if (refreshList) {
       fetch(endpoints.getTasks).then(response => response.text()).then(result => {
-        const taskItems = JSON.parse(result).body.Items;
+        const taskItems = JSON.parse(result).body;
         setTasks(taskItems);
       }).catch(error => console.error(error));
       setRefreshList(false);
@@ -22,6 +22,7 @@ function App() {
     // using built in JSON utility package turn object to string and store in a variable
     const id = Date.now(); //Number.parseInt(document.getElementById('id').value);
     const title = document.getElementById('title').value;
+    document.getElementById('title').value = '';
     var raw = JSON.stringify(
       { "id":id,
         "title":title,
@@ -45,7 +46,7 @@ function App() {
     <div className="App">
       <table>
         <tbody>
-          {tasks.map(task => <tr key={task.ID}><td><input type="checkbox"/></td><td>{task.Title}</td></tr>)}
+          {tasks.map(task => <tr key={task.id}><td><input type="checkbox"/></td><td>{task.title}</td></tr>)}
         </tbody>
       </table>
       <form>

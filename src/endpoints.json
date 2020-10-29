@@ -1,0 +1,4 @@
+{
+    "createTask": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev",
+    "getTasks": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev"
+}

@@ -3,6 +3,10 @@
   font-size: 1.4em;
 }
 
+a {
+  font-size: 12px;
+}
+
 div#tasks {
   margin: 10px 0;
 }

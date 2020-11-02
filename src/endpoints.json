@@ -1,5 +1,6 @@
 {
     "createTask": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev",
     "getTasks": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev",
-    "finishTask": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev"
+    "finishTask": "https://in8wy213tj.execute-api.us-west-2.amazonaws.com/dev",
+    "getCompletedTasks": "https://g90hojxzkj.execute-api.us-west-2.amazonaws.com/dev"
 }

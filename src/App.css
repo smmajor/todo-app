@@ -1,38 +1,26 @@
 .App {
   text-align: center;
+  font-size: 1.4em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div#tasks {
+  margin: 10px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type='checkbox'] {
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: middle;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+label {
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+  padding: 0 14px;
+  vertical-align: middle;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div#form {
+  margin: 10px 0;
 }

@@ -28,3 +28,11 @@ label {
 div#form {
   margin: 10px 0;
 }
+
+div#completedTasks {
+  margin: 10px 0;
+}
+
+label.completedTask {
+  text-decoration: line-through;
+}

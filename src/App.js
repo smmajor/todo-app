@@ -5,14 +5,20 @@ import endpoints from './endpoints.json';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [refreshList, setRefreshList] = useState(true);
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const [showCompletedTasks, setShowCompletedTasks] = useState(false);
 
   useEffect(() => {
+    console.log('useEffect');
     if (refreshList) {
       fetch(endpoints.getTasks).then(response => response.text()).then(result => {
         const taskItems = JSON.parse(result).body;
         setTasks(taskItems);
       }).catch(error => console.error(error));
       setRefreshList(false);
+      if (showCompletedTasks) {
+        fetchCompletedTasks();
+      }
     }
   });
 
@@ -59,12 +65,21 @@ function App() {
     }).catch(error => console.log('error', error));
   };
 
-  const showCompletedTasks = () => {
+  const showHideCompletedTasks = () => {
+    if (!showCompletedTasks) {
+      fetchCompletedTasks();
+      setShowCompletedTasks(true);
+    } else {
+      setShowCompletedTasks(false);
+    }
+  };
+
+  const fetchCompletedTasks = () => {
     fetch(endpoints.getCompletedTasks).then(response => response.text()).then(result => {
       const taskItems = JSON.parse(result).body;
-      console.log(taskItems);
+      setCompletedTasks(taskItems);
     }).catch(error => console.error(error));
-  };
+  }
 
   return (
     <div className="App">
@@ -75,8 +90,11 @@ function App() {
         <input type="text" name="title" id="title" />
         <button type="button" onClick={createTask}>Create Task</button>
       </div>
-      <div id="completedTasks">
-        <a href="#" onClick={showCompletedTasks}>Show completed tasks</a>
+      <div>
+        <a href="#" onClick={showHideCompletedTasks}>{ showCompletedTasks ? 'Hide completed tasks' : 'Show completed tasks' }</a>
+        <div id="completedTasks">
+          { showCompletedTasks ? completedTasks.map(task => <div key={task.id}><label className="completedTask">{task.title}</label></div>) : null }
+        </div>
       </div>
     </div>
   );
